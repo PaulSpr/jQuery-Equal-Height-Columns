@@ -12,7 +12,7 @@
 	http://www.interactivestudios.nl
 	-->
 	
-	<title>EqualHiehgtColumns test</title>
+	<title>EqualHeightColumns test</title>
 	
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -45,26 +45,27 @@
 	
 
 	
-	<ul class="blocks unit-1">
+	<ul class="blocks test-1">
 		<li>
-			<h2>A headline</h2>
-			<p>Some test content just to make sure that something is displayed here.</p>
-			<p>And another line to make it a little bit higher</p>
+			<h2>jQuery Equal Height Columns</h2>
+			<p>This plugin makes multiple elements as high as the tallest element among them.</p>
+			<p>It also works great for responsive and fluid designs.</p>
 		</li>
 
 		
 
 		<li>
-			<h2>Another headline that shows us stuff can be longer still.</h2>
-			<p>Pfff. I don't have a lot of inspiration to keep banging out these fake paragraphs.</p>
-			<p>Which is a shame, since I decided this block should have three of them.</p>
-			<p>So I'm closing this out now. Toime to test te plugin</p>
+			<h2>But does it have a lot of options I can set myself?.</h2>
+			<p>There are three options you can set. MaxWidth is probably useless, but hey, it's there if you want to use it.</p>
+			<p><strong>minWidth</strong>: The plugin won't do anything unless the width is wider than this value</p>
+			<p><strong>maxWidth</strong>: The plugin won't do anything unless the width is smaller than this value</p>
+			<p><strong>setHeightOn</strong>: The css attribute on which the height gets set.</p>
 		</li>
 
 		<li>
-			<h2>A lot longer headline</h2>
-			<p>First paragraph to initiate this block (well there is a headline already).</p>
-			<p>Some test content just to make sure that something is displayed here. And this make s this paragraph a bit longer</p>
+			<h2>Does it have downsides?</h2>
+			<p>Yes. It works best on colums which are on a single line. If they span more lines the plugin won't take into account that each row probably would be better of with a different height. Now every row will have the height of the tallest element in the entire selection.</p>
+			<p>Second, you can only have a single (configurable) bounded range for which the plugin kicks-in. This could be a problem in certain responsive websites.</p>
 			
 		</li>
 	</ul>
@@ -72,35 +73,34 @@
 
 
 
-	<ul class="blocks unit-2">
+	<ul class="blocks test-2">
 		<li>
-			<div class="tekst">
-				<h2>A headline</h2>
-				<p>Some test content just to make sure that something is displayed here.</p>
-				<p>And another line to make it a little bit higher</p>
+			<div class="text">
+				<h2>Why this plugin?</h2>
+				<p><strong>You could do this with tables right?</strong> Yes, but it's not semantic. Also it's not flexible enough for responsive websites.</p>
+				<p><strong>But... Flexbox?</strong> It's possible, on IE10+.</p>
+				<p><strong>What about display: table-cell;?.</strong> A bit better support, but you can't pull of example 2.</p>
 			</div>
-			<p><a href="#">Lees meer</a></p>
+			<p><a href="#">Don't read more</a></p>
 		</li>
 
 		
 
 		<li>
-			<div class="tekst">	
-				<h2>Another headline that shows us stuff can be longer still.</h2>
-				<p>Pfff. I don't have a lot of inspiration to keep banging out these fake paragraphs.</p>
-				<p>Which is a shame, since I decided this block should have three of them.</p>
-				<p>So I'm closing this out now. Toime to test te plugin</p>
+			<div class="text">	
+				<h2>About example 1 (look up)</h2>
+				<p>It uses the minWidth and maxWidth options. You can see this in effect when you resize your your browser window.</p>
 			</div>
-			<p><a href="#">Lees meer</a></p>
+			<p><a href="#">Don't read more</a></p>
 		</li>
 
 		<li>
-			<div class="tekst">
-				<h2>A lot longer headline</h2>
-				<p>First paragraph to initiate this block (well there is a headline already).</p>
-				<p>Some test content just to make sure that something is displayed here. And this make s this paragraph a bit longer</p>
+			<div class="text">
+				<h2>About example 2</h2>
+				<p>This example uses wraps the main text in a wrapper div, followed by an &lt;a&gt; element. The plugin works it's magic on the wrapper div, which results in the links neatly matching up vertically.</p>
+				
 			</div>
-			<p><a href="#">Lees meer</a></p>
+			<p><a href="#">Don't read more</a></p>
 		</li>
 	</ul>
 	
@@ -109,11 +109,12 @@
 	<script src="jquery.equalheightcolumns.js"></script>
 
 	<script>
-		$('.unit-1 li').equalHeightColumns({
-			minWidth: 1000
+		$('.test-1 li').equalHeightColumns({
+			minWidth: 500,
+			maxWidth: 1000
 		});
 
-		$('.unit-2 .tekst').equalHeightColumns();
+		$('.test-2 .text').equalHeightColumns();
 	</script>
 
   
