@@ -7,47 +7,48 @@ Usage of this plugin is simple. You just match the elements that need to be of t
 
 
 Example call:
-    $('.blocks li').equalHeightColumns({
-      minWidth: 500,
-    	maxWidth: 1000
-    });
+
+      $('.blocks li').equalHeightColumns({
+        minWidth: 500,
+        maxWidth: 1000
+      });
 
 
 Exmaple HTML:
+
     <ul class="blocks">
       <li>
-    		<h2>...</h2>
-    		<p>....</p>
-	    </li>
+        <h2>...</h2>
+        <p>....</p>
+      </li>
 
-    	<li>
-	    	<h2>...</h2>
-	    	<p>...</p>
-       <p>...</p>
-       <p>...</p>
-    	</li>
+      <li>
+        <h2>...</h2>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+      </li>
 
-    	<li>
-    		<li>
-    		<h2>...</h2>
-    		<p>...</p>
-       <p>...</p>
-    	</li>
+      <li>
+        <h2>...</h2>
+        <p>...</p>
+        <p>...</p>
+      </li>
     </ul>
 
 
 Example CSS:
-    .blocks{
-      list-style: none;
-      width: 50%;
-    	margin: 0px auto;
-    	overflow: hidden;
-	    margin-bottom: 20px;
-    }
-    .blocks li{
-	    background: #eee;
-	    margin: 0 1%;
-	    padding: 0 2%;
-	    width: 27.33333%;
-	    float: left;
-  }
+      .blocks{
+        list-style: none;
+        width: 50%;
+        margin: 0px auto;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .blocks li{
+        background: #eee;
+        margin: 0 1%;
+        padding: 0 2%;
+        width: 27.33333%;
+        float: left;
+      }
