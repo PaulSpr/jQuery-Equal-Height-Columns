@@ -38,6 +38,7 @@ Exmaple HTML:
 
 
 Example CSS:
+
       .blocks{
         list-style: none;
         width: 50%;
