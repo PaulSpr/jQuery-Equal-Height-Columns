@@ -1,0 +1,122 @@
+<!doctype html>  
+
+<html lang="nl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<!-- 
+	This website was carefully constructed by
+	Interactive Studios
+	http://www.interactivestudios.nl
+	-->
+	
+	<title>EqualHiehgtColumns test</title>
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	
+		
+
+	
+	<style type="text/css">
+		.blocks{
+			list-style: none;
+			width: 50%;
+			margin: 0px auto;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.blocks li{
+			background: #eee;
+			margin: 0 1%;
+			padding: 0 2%;
+			width: 27.33333%;
+			float: left;
+		}
+
+	</style>
+	
+</head>
+
+
+<body>
+	
+
+	
+	<ul class="blocks unit-1">
+		<li>
+			<h2>A headline</h2>
+			<p>Some test content just to make sure that something is displayed here.</p>
+			<p>And another line to make it a little bit higher</p>
+		</li>
+
+		
+
+		<li>
+			<h2>Another headline that shows us stuff can be longer still.</h2>
+			<p>Pfff. I don't have a lot of inspiration to keep banging out these fake paragraphs.</p>
+			<p>Which is a shame, since I decided this block should have three of them.</p>
+			<p>So I'm closing this out now. Toime to test te plugin</p>
+		</li>
+
+		<li>
+			<h2>A lot longer headline</h2>
+			<p>First paragraph to initiate this block (well there is a headline already).</p>
+			<p>Some test content just to make sure that something is displayed here. And this make s this paragraph a bit longer</p>
+			
+		</li>
+	</ul>
+
+
+
+
+	<ul class="blocks unit-2">
+		<li>
+			<div class="tekst">
+				<h2>A headline</h2>
+				<p>Some test content just to make sure that something is displayed here.</p>
+				<p>And another line to make it a little bit higher</p>
+			</div>
+			<p><a href="#">Lees meer</a></p>
+		</li>
+
+		
+
+		<li>
+			<div class="tekst">	
+				<h2>Another headline that shows us stuff can be longer still.</h2>
+				<p>Pfff. I don't have a lot of inspiration to keep banging out these fake paragraphs.</p>
+				<p>Which is a shame, since I decided this block should have three of them.</p>
+				<p>So I'm closing this out now. Toime to test te plugin</p>
+			</div>
+			<p><a href="#">Lees meer</a></p>
+		</li>
+
+		<li>
+			<div class="tekst">
+				<h2>A lot longer headline</h2>
+				<p>First paragraph to initiate this block (well there is a headline already).</p>
+				<p>Some test content just to make sure that something is displayed here. And this make s this paragraph a bit longer</p>
+			</div>
+			<p><a href="#">Lees meer</a></p>
+		</li>
+	</ul>
+	
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="jquery.equalheightcolumns.js"></script>
+
+	<script>
+		$('.unit-1 li').equalHeightColumns({
+			minWidth: 1000
+		});
+
+		$('.unit-2 .tekst').equalHeightColumns();
+	</script>
+
+  
+</body>
+
+</html>
