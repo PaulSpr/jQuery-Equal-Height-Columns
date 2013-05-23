@@ -62,6 +62,10 @@
 
             // Call on resize. Opera debounces their resize by default. 
             $(window).resize(resizeHeight);
+            
+            // Also check if any images are present and recalculate when they load
+            // there might be an optimization opportunity here
+            $this.find('img').load( resizeHeight );
         
 
     };
