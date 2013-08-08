@@ -14,7 +14,7 @@ Example call:
       });
 
 
-Exmaple HTML:
+Example HTML:
 
     <ul class="blocks">
       <li>
@@ -53,3 +53,17 @@ Example CSS:
         width: 27.33333%;
         float: left;
       }
+
+
+New 1.1 options
+---------------
+
+	afterLoading: 'iframe'
+
+'afterLoading' attaches a load event to the selector in 'afterLoading' and fires the resize code.
+
+	afterTimeout: 500
+	
+'afterTimeout' takes time in miliseconds and fires the resize code after that timeout.
+
+If you set both 'afterTimeout' and 'afterLoading' the 'afterLoading' code will also be fired after the timeout. This way you can make sure that dynamically added content (like social media related iframes) are present in the DOM.
