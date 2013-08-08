@@ -144,6 +144,41 @@
 	
 	
 	
+	<ul class="blocks test-4">
+		<li>
+			<div class="text">
+				<h2>Why this plugin?</h2>
+				<p>
+					<img src="http://www.placehold.it/300x400" />
+				</p>
+			</div>
+			<p><a href="#">Don't read more</a></p>
+		</li>
+
+		
+
+		<li>
+			<div class="text">	
+				<h2>About example 1 (look up)</h2>
+				<p>
+					<img src="http://www.placehold.it/300x600" />
+				</p>
+			</div>
+			<p><a href="#">Don't read more</a></p>
+		</li>
+
+		<li>
+			<div class="text">
+				<p>
+					<img src="http://www.placehold.it/500x300" />
+				</p>
+			</div>
+			<p><a href="#">Don't read more</a></p>
+		</li>
+	</ul>
+	
+	
+	
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="jquery.equalheightcolumns.js"></script>
@@ -156,6 +191,11 @@
 
 		$('.test-2 .text').equalHeightColumns();
 		$('.test-3 .text').equalHeightColumns();
+		
+		$('.test-4 .text').equalHeightColumns({
+			afterLoading : 'iframe',
+			afterTimeout : 500
+		});
 	</script>
 
   

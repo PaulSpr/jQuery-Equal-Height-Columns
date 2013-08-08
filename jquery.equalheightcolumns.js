@@ -66,8 +66,43 @@
             // Also check if any images are present and recalculate when they load
             // there might be an optimization opportunity here
             $this.find('img').load( resizeHeight );
-        
+            
+            // If afterLoading is defined, add a load event to the selector
+            if ( typeof options.afterLoading !== 'undefined' ) {
+            	$this.find(options.afterLoading).load( resizeHeight );
+			}
+			
+			// If afterTimeout is defined use it a the timeout value
+			if ( typeof options.afterTimeout !== 'undefined' ) {
+            	setTimeout(function(){
+	            	resizeHeight();
+	            	
+	            	// check afterLoading again, to make sure that dynamically added nodes are present
+	            	if ( typeof options.afterLoading !== 'undefined' ) {
+		            	$this.find(options.afterLoading).load( resizeHeight );
+					}
+            	}, options.afterTimeout);
+			}
 
     };
 
 })( jQuery );
+
+
+
+function print_r(theObj){
+   if(theObj.constructor == Array || theObj.constructor == Object){
+      document.write("<ul>")
+      for(var p in theObj){
+         if(theObj[p].constructor == Array || theObj[p].constructor == Object){
+            document.write("<li>["+p+"] => "+typeof(theObj)+"</li>");
+            document.write("<ul>")
+            print_r(theObj[p]);
+            document.write("</ul>")
+         } else {
+            document.write("<li>["+p+"] => "+theObj[p]+"</li>");
+         }
+      }
+      document.write("</ul>")
+   }
+}
