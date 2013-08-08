@@ -1,12 +1,12 @@
 /*global jQuery */
 /*! 
-* equalHeightColumns.js 1.0
+* equalHeightColumns.js 1.1
 *
 * Copyright 2013, Paul Sprangers http://paulsprangers.com
 * Released under the WTFPL license 
 * http://www.wtfpl.net
 *
-* Date: Thu Feb 21 20:11:00 2013 +0100
+* Date: Thu Aug 8 12:18:00 2013 +0100
 */
 
 (function( $ ){
@@ -87,22 +87,3 @@
     };
 
 })( jQuery );
-
-
-
-function print_r(theObj){
-   if(theObj.constructor == Array || theObj.constructor == Object){
-      document.write("<ul>")
-      for(var p in theObj){
-         if(theObj[p].constructor == Array || theObj[p].constructor == Object){
-            document.write("<li>["+p+"] => "+typeof(theObj)+"</li>");
-            document.write("<ul>")
-            print_r(theObj[p]);
-            document.write("</ul>")
-         } else {
-            document.write("<li>["+p+"] => "+theObj[p]+"</li>");
-         }
-      }
-      document.write("</ul>")
-   }
-}
