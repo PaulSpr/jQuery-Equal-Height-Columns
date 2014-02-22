@@ -17,7 +17,7 @@
                 minWidth: -1,               // Won't resize unless window is wider than this value
                 maxWidth: 99999,            // Won't resize unless window is narrower than this value
                 setHeightOn: 'min-height',   // The CSS attribute on which the equal height is set. Usually height or min-height
-                defaultVal: 0
+                defaultVal: 0               // Default value (for resetting columns before calculation of the maximum height) for the CSS attribute defined via setHeightOn, e.g. 'auto' for 'height' or 0 for 'minHeight'
             };
 
             var $this   = $(this); // store the object
