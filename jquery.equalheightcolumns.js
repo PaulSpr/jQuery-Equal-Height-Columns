@@ -16,7 +16,8 @@
             defaults = { 
                 minWidth: -1,               // Won't resize unless window is wider than this value
                 maxWidth: 99999,            // Won't resize unless window is narrower than this value
-                setHeightOn: 'min-height'   // The CSS attribute on which the equal height is set. Usually height or min-height
+                setHeightOn: 'min-height',   // The CSS attribute on which the equal height is set. Usually height or min-height
+                defaultVal: 0               // Default value (for resetting columns before calculation of the maximum height) for the CSS attribute defined via setHeightOn, e.g. 'auto' for 'height' or 0 for 'minHeight'
             };
 
             var $this   = $(this); // store the object
@@ -34,7 +35,7 @@
                     var highest = 0;
 
                     // Reset heights
-                    $this.css( options.setHeightOn, 0 );
+                    $this.css( options.setHeightOn, options.defaultVal );
 
                     // Figure out the highest element
                     $this.each( function(){
@@ -53,7 +54,7 @@
                 }
                 else{
                     // Add check so this doesn't have to happen everytime 
-                    $this.css( options.setHeightOn, 0 );
+                    $this.css(options.setHeightOn, options.defaultVal);
                 }
             };
 
