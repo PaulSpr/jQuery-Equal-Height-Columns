@@ -67,3 +67,14 @@ New 1.1 options
 'afterTimeout' takes time in miliseconds and fires the resize code after that timeout.
 
 If you set both 'afterTimeout' and 'afterLoading' the 'afterLoading' code will also be fired after the timeout. This way you can make sure that dynamically added content (like social media related iframes) are present in the DOM.
+
+New 1.2 options
+---------------
+
+	equalizeRows: false
+	
+Set this option to 'true' to equalize every row individually. This way every colum is set to the tallest column in the row which can result in every row having a different height.
+
+	checkHeight: 'height'
+	
+This option determines what method to use to determine a columns height. If you use box-sizing: border-box, it might be better to set this option to innerHeight. This might become the default in a future version since it seems to work well in most cases.
