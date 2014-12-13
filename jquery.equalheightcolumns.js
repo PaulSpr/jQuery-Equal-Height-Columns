@@ -1,12 +1,13 @@
 /*global jQuery */
 /*! 
-* equalHeightColumns.js 1.1
+* equalHeightColumns.js 1.2
+* https://github.com/PaulSpr/jQuery-Equal-Height-Columns
 *
-* Copyright 2013, Paul Sprangers http://paulsprangers.com
+* Copyright 2014, Paul Sprangers http://paulsprangers.com
 * Released under the WTFPL license 
 * http://www.wtfpl.net
 *
-* Date: Thu Aug 8 12:18:00 2013 +0100
+* Date: Sat Dec 13 11:30:00 2014 +0100
 */
 
 (function( $ ){
@@ -17,22 +18,26 @@
                 minWidth: -1,               // Won't resize unless window is wider than this value
                 maxWidth: 99999,            // Won't resize unless window is narrower than this value
                 setHeightOn: 'min-height',   // The CSS attribute on which the equal height is set. Usually height or min-height
-                defaultVal: 0               // Default value (for resetting columns before calculation of the maximum height) for the CSS attribute defined via setHeightOn, e.g. 'auto' for 'height' or 0 for 'minHeight'
+                defaultVal: 0,              // Default value (for resetting columns before calculation of the maximum height) for the CSS attribute defined via setHeightOn, e.g. 'auto' for 'height' or 0 for 'minHeight'
+                equalizeRows: false,		// Give every column in indiviual rows even height. Every row can have a different height this way
+				checkHeight: 'height'		// Which height to check, using box-sizing: border-box, innerHeight is probably more appropriate
             };
 
             var $this   = $(this); // store the object
             options     = $.extend( {}, defaults, options ); // merge options
             
-            // Recalculate the distance to the top of the element to keep it centered
+            // Resize height of the columns
             var resizeHeight = function () {
 
                 // Get window width
                 var windowWidth = $(window).width();
+				var currentElements = Array();
 
                 // Check to see if the current browser width falls within the set minWidth and maxWidth
                 if( options.minWidth < windowWidth  &&  options.maxWidth > windowWidth ){
                     var height = 0;
                     var highest = 0;
+					var yPos = 0;
 
                     // Reset heights
                     $this.css( options.setHeightOn, options.defaultVal );
@@ -40,16 +45,44 @@
                     // Figure out the highest element
                     $this.each( function(){
 
-                        height = $(this).height();
+						if( options.equalizeRows ){
+							// Check if y position of the element is bigger, if so, it's on another row.
+							// Make sure that the height is only set relative to elements in the same row.
+							var elYPos = $(this).position().top;
 
-                        if( height > highest ){
-                            highest = height;
-                        }
+							if( elYPos != yPos ){
+								// new row, so set the height of the elements of the previous row
+								if( currentElements.length > 0 ) {
+									$(currentElements).css(options.setHeightOn, highest);
+									// clear the array and reset values for the new row
+									highest = 0;
+									currentElements = [];
+								}
+								// get element elYPos again since it might have changed because of the resize
+								yPos = $(this).position().top;
+
+							}
+
+							currentElements.push(this);
+						}
+
+						// do the height check and if it's the highest, set it as such
+						height = $(this)[options.checkHeight]();
+
+						if( height > highest ){
+							highest = height;
+						}
 
                     } );
 
-                    // Set that height on the element
-                    $this.css( options.setHeightOn, highest );
+					if( !options.equalizeRows ){
+						// Set that height on the elements at once
+						$this.css( options.setHeightOn, highest );
+					}
+					else{
+						// set height on elements in last row
+						$(currentElements).css( options.setHeightOn, highest );
+					}
 
                 }
                 else{

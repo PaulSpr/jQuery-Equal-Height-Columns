@@ -21,7 +21,7 @@
 
 	
 	<style type="text/css">
-		.blocks{
+		.blocks, .blocks-2{
 			list-style: none;
 			width: 50%;
 			margin: 0px auto;
@@ -30,9 +30,16 @@
 		}
 		.blocks li{
 			background: #eee;
-			margin: 0 1%;
+			margin: 0 1% 10px;
 			padding: 0 2%;
 			width: 27.33333%;
+			float: left;
+		}
+		.blocks-2 li{
+			background: #eee;
+			margin: 0 1% 10px;
+			padding: 0 2%;
+			width: 100px;
 			float: left;
 		}
 		img{
@@ -47,7 +54,6 @@
 <body>
 	
 
-	
 	<ul class="blocks test-1">
 		<li>
 			<h2>jQuery Equal Height Columns</h2>
@@ -176,6 +182,69 @@
 			<p><a href="#">Don't read more</a></p>
 		</li>
 	</ul>
+
+
+
+	<ul class="blocks test-5">
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda blanditiis consequuntur dolores.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet.
+		</li>
+		<li>
+			Lorem ipsum dolor.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda delectus dolores esse perferendis provident quod similique voluptatem.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda blanditiis consequuntur dolores. Aliquid eius esse, explicabo ipsam libero nemo possimus provident temporibus voluptate voluptatem. Aliquid eius esse, explicabo ipsam libero nemo possimus provident temporibus voluptate voluptatem.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda.
+		</li>
+	</ul>
+
+
+	<ul class="blocks-2 test-6">
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda blanditiis consequuntur dolores.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet.
+		</li>
+		<li>
+			Lorem ipsum dolor.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda delectus dolores esse perferendis provident quod similique voluptatem.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda blanditiis consequuntur dolores. Aliquid eius esse, explicabo ipsam libero nemo possimus provident temporibus voluptate voluptatem. Aliquid eius esse, explicabo ipsam libero nemo possimus provident temporibus voluptate voluptatem.
+		</li>
+		<li>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci assumenda.
+		</li>
+	</ul>
 	
 	
 	
@@ -195,6 +264,16 @@
 		$('.test-4 .text').equalHeightColumns({
 			afterLoading : 'iframe',
 			afterTimeout : 500
+		});
+
+		$('.test-5 li').equalHeightColumns({
+			//checkHeight: 'height',
+			equalizeRows: true
+		});
+
+		$('.test-6 li').equalHeightColumns({
+			//checkHeight: 'height',
+			equalizeRows: true
 		});
 	</script>
 
